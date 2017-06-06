@@ -1,5 +1,5 @@
 ---
 title: С карты на карту (P2P)
 category: Платежный шлюз
-order: 6
+order: 8
 ---

@@ -1,7 +1,7 @@
 ---
 title: Инициализация платежа
 category: Платежный шлюз
-order: 1
+order: 2
 ---
 
 ## Параметры запроса
@@ -30,4 +30,52 @@ order: 1
 | exp_year    | string  | Да             | Срок действия банковской карты - год. Формат - YYYY.         |   |
 | cvv         | int     | Да             | CVC/CVV2 - секретный код банковской карты.                   |   |
 | pp_identity | string  | Да             | Идентификатор платежной системы. Для банковских карт - card. |   |
+
+## Ответ
+
+#### Требуется 3DS авторизация
+
+```xml
+<response>
+    <payment_id>784093adb49a43e9b89a63807d780acb</payment_id>
+    <status>3DSECURE</status>
+    <extended_id>784093adb49a43e9b89a63807d780acb</extended_id>
+    <extended_status>3DSECURE</extended_status
+    <transaction_status>3DSECURE</transaction_status>    
+    <datetime>2011-04-28 11:52:15.0</datetime>
+    <duplicate>false</duplicate>
+    <additional>
+        <secure3d>
+            <auth-form>https://3dsecure.issuerbankdomain.com/sample_acs</auth-form>
+            <auth-form-method/>
+            <retransmit>
+                <TermUrl>...</TermUrl>
+                <PaReq>...</PaReq>
+                <MD>...</MD>
+                <SOME_PARAM_NAME>PARAM_VALUE</SOME_PARAM_NAME>
+            </retransmit>
+        </secure3d>
+    </additional>
+</response>
+```
+
+#### Возможно списание без 3DS авторизации
+
+```xml
+<response>
+    <payment_id>b86ec39cc1194ee893df3cea27a98ec9</payment_id>
+    <status>OK</status>
+    <extended_id>910bcdbb2efa4b9c85ad32fefc0596bf</extended_id>
+    <extended_status>PREAUTHORIZATION</extended_status>
+    <transaction_status>PREAUTHORIZATION</transaction_status>
+    <datetime>2017-06-05 12:53:03+0000</datetime>
+    <duplicate>false</duplicate>
+    <additional>
+        <reestr_id></reestr_id>
+        <date_post></date_post>
+        <id>b86ec39cc1194ee893df3cea27a98ec9</id>
+        <pp_identity>card_visa</pp_identity>
+    </additional>
+</response>
+```
 

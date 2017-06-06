@@ -1,6 +1,6 @@
 ---
 title: Статус платежа
 category: Платежный шлюз
-order: 3
+order: 6
 ---
 
