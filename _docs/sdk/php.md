@@ -8,10 +8,20 @@ order: 1
 
 Для работы с платежным шлюзом используется библиотека [Omnipay](http://omnipay.thephpleague.com/).
 
+## Установка
+
 С помощью [Composer](http://getcomposer.org) установите AcquiroPay SDK:
 
 ```bash
 composer require acquiropay/omnipay-acquiropay
+```
+
+Так же доступно демонстрационное приложение, в котором можно посмотреть как использовать Omnipay вместе с AcquiroPay:
+
+```bash
+git clone https://github.com/acquiropay/omnipay-demo
+cd omnipay-demo
+composer install
 ```
 
 ## Инициализация шлюза
